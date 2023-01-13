@@ -1,0 +1,186 @@
+$bgcolor: #0568a5;
+
+.fias__container {
+    padding    : 25px;
+    font-family: tahoma;
+    color      : $bgcolor;
+    border     : 1px solid rgb(243, 238, 238);
+    box-shadow : 0px 0px 13px 3px rgba(0, 0, 0, 0.07);
+
+    .fias__index,
+    .fias__region,
+    .fias__city,
+    .fias__street,
+    .fias__house,
+    .fias__corp,
+    .fias__room {
+        margin-top           : 10px;
+        display              : grid;
+        grid-template-columns: 1fr 25px;
+        grid-row-gap         : 10px;
+
+        .title {
+            grid-column-start: 1;
+            grid-column-end  : 3;
+
+        }
+
+        .input {
+            input {
+
+                font-size: 22px;
+                border   : 1px solid #ccc;
+                width    : 100%;
+            }
+        }
+
+        .select {
+            background-color: $bgcolor;
+            color           : #fff;
+            cursor          : pointer;
+            display         : flex;
+            align-items     : center;
+            justify-content : center;
+        }
+    }
+
+
+    ///////////////заблокированный ввод
+
+
+    .fias__index.blocked,
+    .fias__region.blocked,
+    .fias__city.blocked,
+    .fias__street.blocked,
+    .fias__house.blocked,
+    .fias__corp.blocked,
+    .fias__room.blocked {
+        margin-top           : 10px;
+        display              : grid;
+        grid-template-columns: 1fr 25px;
+        grid-row-gap         : 10px;
+
+        .title {
+            grid-column-start: 1;
+            grid-column-end  : 3;
+            color            : #ccc;
+
+        }
+
+        .input {
+            input {
+
+                font-size       : 22px;
+                border          : 1px solid #ccc;
+                width           : 100%;
+                background-color: rgb(241, 241, 241);
+            }
+        }
+
+        .select {
+            background-color: #ccc;
+            color           : #fff;
+            cursor          : auto;
+            display         : flex;
+            align-items     : center;
+            justify-content : center;
+        }
+
+
+
+
+    }
+
+    .fias__footer {
+        width          : 100%;
+        display        : flex;
+        align-items    : center;
+        justify-content: flex-end;
+        height         : 100px;
+
+        .btn {
+            display      : inline-block;
+            padding      : 5px 15px;
+            background   : $bgcolor;
+            color        : #fff;
+            cursor       : pointer;
+            margin-left  : 4px;
+            border-radius: 3px;
+
+        }
+
+
+    }
+}
+
+.noselect {
+    grid-column-start: 1;
+    grid-column-end  : 3;
+
+}
+
+.window {}
+
+.modal {
+    position        : fixed;
+    background-color: #fafafa;
+    width           : 400px;
+    height          : 550px;
+    margin          : auto;
+    left            : 0;
+    top             : 0;
+    right           : 0;
+    bottom          : 0;
+    display         : block;
+
+}
+
+
+.fias__popup {
+    display              : none;
+    grid-template-columns: 1fr;
+    grid-template-rows   : 1fr 70px;
+    position             : fixed;
+    left                 : 0;
+    top                  : 0;
+    right                : 0;
+    bottom               : 0;
+    margin               : auto;
+    background           : #fafafa;
+    width                : 400px;
+    height               : calc(100% - 100px);
+    padding              : 20px;
+
+    font-family: tahoma;
+    box-shadow : 0px 0px 23px 5px rgba(0, 0, 0, 0.2);
+
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: 0px 0px 13px 5px rgba(0, 0, 0, 0.2);
+
+    .fias__popupitem {
+        margin : 3px 0;
+        cursor : pointer;
+        padding: 5px;
+    }
+
+    .fias__popupitem:hover {
+        color: #fff;
+        background: $bgcolor;
+    }
+
+    .fias__footer {
+        display        : flex;
+        justify-content: flex-end;
+        align-items    : center;
+        background     : darken(#fafafa, 4);
+        box-shadow     : 0px 0px 13px 5px rgba(0, 0, 0, 0.2);
+
+        .button {
+            height      : 22px;
+            padding     : 10px 15px;
+            margin-right: 20px;
+        }
+    }
+}

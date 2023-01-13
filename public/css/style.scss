@@ -1,0 +1,255 @@
+@mixin centerflex {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+
+}
+
+body {
+    @include centerflex;
+    flex-direction: column;
+    height        : 100%;
+
+}
+
+.button {
+    padding      : 15px 25px;
+    font-family  : Tahoma;
+    background   : green;
+    border-radius: 4px;
+    color        : #fff;
+    cursor       : pointer;
+    display      : inline-block;
+    height       : 20px;
+    margin       : 0 3px;
+
+}
+
+.stop {
+    color: orange;
+}
+
+.button:hover {
+    background: lighten(green, 3);
+    display   : block;
+}
+
+.text {
+    @include centerflex;
+    padding    : 60px;
+    font-family: tahoma;
+
+    width: 100%;
+
+}
+
+.progressinfo,
+.uploadsetup {
+    background           : #fafafa;
+    width                : 600px;
+    height               : 500px;
+    font-family          : tahoma;
+    box-shadow           : 0px 0px 23px 5px rgba(0, 0, 0, 0.2);
+    display              : grid;
+    grid-template-columns: 1fr;
+    grid-template-rows   : 50px 1fr 70px;
+
+
+    .header {
+        height      : 30px;
+        background  : #1f5ea5;
+        color       : #fff;
+        display     : flex;
+        align-items : center;
+        padding-left: 20px;
+    }
+
+    .content {
+        padding: 30px;
+        width  : calc(100% - 60px);
+
+    }
+
+    .info {}
+
+    .progressbarcontainer {
+        width        : calc(100% - 60px);
+        height       : 25px;
+        margin       : 20px 0;
+        border       : 1px solid darken(#fafafa, 8);
+        border-radius: 3px;
+    }
+
+    .progressbar {
+        background: green;
+        height    : 25px;
+        width     : 45%;
+    }
+
+    .footer {
+        display        : flex;
+        justify-content: flex-end;
+        padding-right  : 30px;
+    }
+}
+
+
+
+.uploadsetup {
+    .content {
+        padding              : 30px;
+        width                : calc(100% - 60px);
+        display              : grid;
+        grid-template-columns: 1fr;
+        grid-template-rows   : 100px 1fr;
+
+        .types {
+            display              : grid;
+            grid-template-columns: 1fr;
+            grid-template-rows   : 40px 1fr;
+            border-bottom        : darken(#fafafa, 5) solid 1px;
+
+
+            .header {
+                padding-left: 0;
+                background  : transparent !important;
+                color       : #1f5ea5;
+            }
+
+            .tcontentcontainer {
+                display              : grid;
+                grid-template-columns:  1fr 1fr;
+                width: 100%;
+
+                .tcontent {
+                    padding: 0px;
+                    display: block;
+
+                    height: 40px;
+                }
+            }
+        }
+
+
+
+        .regionscontainer {
+
+            display              : grid;
+            grid-template-columns: 1fr;
+            grid-template-rows   : 1fr 50px;
+
+            .footer {
+                display        : flex;
+                justify-content: flex-end;
+                padding-right  : 30px;
+
+                .button {
+                    height : 15px;
+                    padding: 10px 15px;
+                }
+            }
+
+            .regions {
+                display              : grid;
+                grid-template-columns: repeat(3, 1fr);
+                margin-top: 20px;
+
+                .regionsleft {
+                    grid-column-start: 1;
+                    grid-column-end  : 4;
+                    display          : flex;
+                    justify-content  : flex-end;
+                }
+            }
+        }
+    }
+
+}
+
+.popup {
+    display              : none;
+    grid-template-columns: 1fr;
+    grid-template-rows   : 1fr 70px;
+    position             : fixed;
+    left                 : 0;
+    top                  : 0;
+    right                : 0;
+    bottom               : 0;
+    margin               : auto;
+    background           : #fafafa;
+    width                : 400px;
+    height               : calc(100% - 100px);
+
+    font-family: tahoma;
+    box-shadow : 0px 0px 23px 5px rgba(0, 0, 0, 0.2);
+
+    .popupdata {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        box-shadow: 0px 0px 13px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer {
+        display        : flex;
+        justify-content: flex-end;
+        align-items    : center;
+        background     : darken(#fafafa, 4);
+        box-shadow     : 0px 0px 13px 5px rgba(0, 0, 0, 0.2);
+
+        .button {
+            height      : 22px;
+            padding     : 10px 15px;
+            margin-right: 20px;
+        }
+    }
+}
+
+.regiontoselect {
+
+    display              : grid;
+    grid-template-columns: 30px 1fr;
+    height               : 20px;
+    margin               : 5px 0;
+    margin-left          : 10px;
+    padding              : 7px 0;
+    cursor               : pointer;
+
+    .text {
+        height         : 20px;
+        padding        : 0px;
+        display        : flex;
+        justify-content: flex-start;
+    }
+
+}
+
+.regiontoselect:hover {
+    background: darken(#fafafa, 4);
+}
+
+$checkedbgcolor:darken(#fafafa, 10);
+$checkedcolor  :#000;
+
+.checked {
+    background: $checkedbgcolor;
+    color     : $checkedcolor;
+}
+
+.checked:hover {
+    background: $checkedbgcolor;
+    color     : $checkedcolor;
+}
+
+.demoregion {
+    background     : darken(#fafafa, 4);
+    margin         : 3px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    cursor         : pointer;
+    border-radius  : 3px;
+    padding        : 4px;
+    border         : solid 1px darken(#fafafa, 10);
+
+
+}
